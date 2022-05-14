@@ -6,6 +6,18 @@ import (
 	"net/http"
 )
 
+// @Summary      signUp
+// @Description  create account
+// @Tags         auth
+// @ID 			 create account
+// @Accept       json
+// @Produce      json
+// @Param        input body todo.User true "account info"
+// @Success      200  {integer}  integer
+// @Failure      400,404  {integer}  errorResponse
+// @Failure      500  {integer}  errorResponse
+// @Failure      default  {object}  errorResponse
+// @Router       /auth/sign-up [post]
 func (h *Handler) signUp(c *gin.Context) {
 	var input todoApp.User
 
@@ -28,6 +40,18 @@ type signInInput struct {
 	Password string `json:"password" binding:"required"`
 }
 
+// @Summary      signIn
+// @Description  login
+// @Tags         auth
+// @ID 			 login
+// @Accept       json
+// @Produce      json
+// @Param        input body signInInput true "credentials"
+// @Success      200  {string}  token
+// @Failure      400,404  {object}  errorResponse
+// @Failure      500  {object}  errorResponse
+// @Failure      default  {object}  errorResponse
+// @Router       /auth/sign-in [post]
 func (h *Handler) signIn(c *gin.Context) {
 	var input signInInput
 

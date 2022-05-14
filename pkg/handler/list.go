@@ -7,6 +7,19 @@ import (
 	"strconv"
 )
 
+// @Summary      Create todo list
+// @Security     ApiKeyAuth
+// @Description  create todo list
+// @Tags         lists
+// @ID 			 create-list
+// @Accept       json
+// @Produce      json
+// @Param        input body todo.Todolist true "list info"
+// @Success      200  {integer}  integer 1
+// @Failure      400,404  {object}  errorResponse
+// @Failure      500  {object}  errorResponse
+// @Failure      default  {object}  errorResponse
+// @Router       /api/lists [post]
 func (h *Handler) createList(c *gin.Context) {
 	userId, err := getUserId(c)
 	if err != nil {
